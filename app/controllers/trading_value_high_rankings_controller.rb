@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class Ranking
-  URL = 'https://finance.yahoo.co.jp/stocks/ranking/tradingValueHigh?market=all&term=daily'.freez
+class TradingValueHighRankingsController < ApplicationController
+  require 'open-uri'
 
-  attr_reader :ranking
+  URL = 'https://finance.yahoo.co.jp/stocks/ranking/tradingValueHigh?market=all&term=daily'
 
-  def initialize
+  def show
     @ranking = load_ranking
   end
 
@@ -14,7 +14,7 @@ class Ranking
   def load_ranking
     htmls = read_htmls
     docs = parse_htmls(htmls)
-    pick_elements(docs)
+    pick_ranking_data(docs)
   end
 
   def read_htmls
@@ -30,7 +30,7 @@ class Ranking
     end
   end
 
-  def pick_elements(docks)
+  def pick_ranking_data(docks)
     docks.each_with_object([]) do |doc, array|
       doc.css('table tbody tr').each do |element|
         array << element.at_css('ul li').children.text
