@@ -1,0 +1,11 @@
+<table border="1">
+  <tr>
+    <% @codes.in_groups_of(50) do |codes| %>
+      <td>
+        <% codes.each do |code| %>
+          <%= code %><br>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+</table>
