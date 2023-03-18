@@ -1,0 +1,30 @@
+<table border="1">
+  <tr>
+    <th>1~50</th>
+    <th>51~100</th>
+    <th>101~150</th>
+    <th>151~200</th>
+  </tr>
+  <tr>
+    <td id="copyTarget-1">
+      <% @year_to_date_highs.slice(0, 50)&.each do |rank| %>
+        <%= rank %><br>
+      <% end %>
+    </td>
+    <td id="copyTarget-2">
+      <% @year_to_date_highs.slice(50, 50)&.each do |rank| %>
+        <%= rank %><br>
+      <% end %>
+    </td>
+    <td id="copyTarget-3">
+      <% @year_to_date_highs.slice(100, 50)&.each do |rank| %>
+        <%= rank %><br>
+      <% end %>
+    </td>
+    <td id="copyTarget-4">
+      <% @year_to_date_highs.slice(150, 50)&.each do |rank| %>
+        <%= rank %><br>
+      <% end %>
+    </td>
+  </tr>
+</table>
