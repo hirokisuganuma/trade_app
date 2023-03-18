@@ -22,8 +22,6 @@ class FiscalScheduleCodesController < ApplicationController
       page_b = URI.parse(URL + "&lst=#{target_date}&pageID=#{num + 1}").open('User-Agent' => 'Mozilla/5.0').read
       picked_codes_b = picke_codes(page_b)
 
-      merge_picked_codes(codes, picked_codes_a, picked_codes_b)
-
       if picked_codes_a == picked_codes_b
         codes << picked_codes_a
         @codes = codes.flatten.uniq
