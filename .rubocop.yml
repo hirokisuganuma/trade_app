@@ -123,3 +123,6 @@ Style/SwapValues: # new in 1.1
 Metrics/MethodLength:
   Enabled: true
   Max: 20
+Metrics/AbcSize:
+  Enabled: true
+  Max: 25
