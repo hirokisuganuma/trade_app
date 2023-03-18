@@ -3,7 +3,7 @@
 class FiscalScheduleCodesController < ApplicationController
   require 'open-uri'
 
-  URL = 'https://kabuyoho.ifis.co.jp/index.php?sa=schedule&lst=20230127&pageID=1'
+  URL = 'https://kabuyoho.ifis.co.jp/index.php?sa=schedule'
 
   def index
     load_fiscal_schedule_codes
@@ -12,7 +12,7 @@ class FiscalScheduleCodesController < ApplicationController
   private
 
   def load_fiscal_schedule_codes
-    target_date = Date.new.since(3.weeks).strftime('%_Y%m%d')
+    target_date = Date.today.since(3.weeks).strftime('%_Y%m%d')
     codes = []
     num = 0
     loop do
@@ -45,4 +45,6 @@ class FiscalScheduleCodesController < ApplicationController
   def parse_html(html)
     Nokogiri::HTML.parse(html)
   end
+
+
 end
