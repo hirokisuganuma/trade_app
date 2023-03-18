@@ -70,7 +70,7 @@ group :development do
 
   gem 'ruby-debug-ide'
 
-  gem "debase", "0.2.5.beta2", require: false
+  gem 'debase', '0.2.5.beta2', require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

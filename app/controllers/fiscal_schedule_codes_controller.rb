@@ -22,22 +22,24 @@ class FiscalScheduleCodesController < ApplicationController
       page_b = URI.parse(URL + "&lst=#{target_date}&pageID=#{num + 1}").open('User-Agent' => 'Mozilla/5.0').read
       picked_codes_b = picke_codes(page_b)
 
+      merge_picked_codes(codes, picked_codes_a, picked_codes_b)
+
       if picked_codes_a == picked_codes_b
         codes << picked_codes_a
         @codes = codes.flatten.uniq
         break
       else
-        codes << picked_codes_a + picked_codes_b
+        codes << (picked_codes_a + picked_codes_b)
       end
     end
   end
-
 
   def picke_codes(html_page)
     doc = parse_html(html_page)
     doc.css('#progress_list table tr').each_with_object([]) do |attribute, arry|
       td_attribute = attribute.at_css('td')
       next if td_attribute.blank?
+
       arry << td_attribute.text
     end
   end
@@ -45,6 +47,4 @@ class FiscalScheduleCodesController < ApplicationController
   def parse_html(html)
     Nokogiri::HTML.parse(html)
   end
-
-
 end
