@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # TODO: indexへ変更予定
   root 'trading_value_high_rankings#show'
   resources :year_to_date_highs, only: [:index]
+  resources :fiscal_schedule_codes, only: [:index]
 end
