@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "TradingValueHighRankingsController", type: :request do
+RSpec.describe :TradingValueHighRankingsController, type: :request do
   context 'Response' do
     it 'レスポンスが200であること' do
       get root_path
