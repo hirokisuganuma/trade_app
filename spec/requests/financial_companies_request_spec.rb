@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
-RSpec.describe :TradingValueHighRankingsController, type: :request do
+RSpec.describe :FinancialCompaniesController, type: :request do
   context 'Response' do
     it 'レスポンスが200であること' do
-      get root_path
+      get financial_companies_path
       expect(response.status).to eq 200
     end
   end
