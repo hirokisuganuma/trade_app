@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe :FiscalScheduleCodesController, type: :request do
+RSpec.describe :ValueHighRankingsController, type: :request do
   context 'Response' do
     it 'レスポンスが200であること' do
-      get fiscal_schedule_codes_path
+      get root_path
       expect(response.status).to eq 200
     end
   end
