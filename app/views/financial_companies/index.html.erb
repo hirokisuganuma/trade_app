@@ -1,10 +1,11 @@
 <table border="1">
   <tr>
-    <% @company_codes.in_groups_of(50) do |codes| %>
-      <td>
+  <% @company_codes.in_groups_of(50) do |codes| %>
+      <td data-controller="button" data-button-target="td">
         <% codes.each do |code| %>
           <%= code %><br>
         <% end %>
+        <button data-action="click->button#click">コピー</button>
       </td>
     <% end %>
   </tr>
