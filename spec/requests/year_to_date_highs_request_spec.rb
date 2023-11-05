@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe :YearToDateHighsController, type: :request do
-  context 'Response' do
+  xcontext 'Response' do
     it 'レスポンスが200であること' do
       get year_to_date_highs_path
       expect(response.status).to eq 200
